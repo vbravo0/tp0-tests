@@ -1,18 +1,24 @@
-# TP0 Automated Tests
+# TP0 Tests Automatizados
 
 ## Setup
 
-Install required packages (using pyenv or virtualenv is recommended)
+Instalar paquetes requeridos (recomendamos usar pyenv or virtualenv)
 
 ```
 pip install -r requirements.txt
 ```
 
-## Running tests
+## Ejecución
 
-Run pytest, passing the path to the repository as an environment variable.
-The path is not a github URL, but the absolute path to the repository in your filesystem.
+Ejecutar `pytest`, pasando la ruta al repositorio como variable de entorno.
+La ruta no es una URL de github, sino la ruta absoluta al repositorio en tu sistema de archivos.
 
 ```
 REPO_PATH=/path/to/repo pytest
 ```
+
+### ADVERTENCIAS:
+
+- Antes de cada test se detienen y eliminan todos los contenedores, imágenes y redes. Asegúrate de no tener contenedores importantes corriendo en tu sistema.
+
+- Antes de cada test se resetea la rama actual y se cambia a la rama a verificar, lo que eliminará cambios sin commitear.
