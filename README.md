@@ -17,6 +17,12 @@ La ruta no es una URL de github, sino la ruta absoluta al repositorio en tu sist
 REPO_PATH=/path/to/repo pytest
 ```
 
+Tambien, podemos ver todos los logs al ejecutar los tests con la flag `-s`.
+
+```
+REPO_PATH=/path/to/repo pytest -s
+```
+
 ### ADVERTENCIAS:
 
 - Antes de cada test se detienen y eliminan todos los contenedores, imágenes y redes. Asegúrate de no tener contenedores importantes corriendo en tu sistema.
