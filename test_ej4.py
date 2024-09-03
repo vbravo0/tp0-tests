@@ -59,7 +59,7 @@ def _test_config(target_container):
 				#Avoids problems with ANSI escape character
 				if not target_container in msg['source']:
 					continue
-				assert (msg['result'] == line_parser.Result.SUCCESS), f'Only {target_container} should exit'
+				assert (msg['result'] == line_parser.Result.SUCCESS), f'{target_container} should exit successfully'
 				break
 		elif not stop_sent:
 			assert (msg['result'] != line_parser.Result.FAIL), 'No operation should fail'
