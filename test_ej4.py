@@ -27,10 +27,10 @@ def beforeEach():
 	config.server(logging_level='DEBUG')
 	config.client(**CLIENT_CONFIG)
 
-def _test_config(target_container):
+def _test_config(target_container, msg_count = MESSAGES_BEFORE_STOP):
 	docker.up()
 	logs = docker.logs()
-	msg_count = MESSAGES_BEFORE_STOP
+	
 	stop_sent = False
 
 	for line in logs:
@@ -72,6 +72,10 @@ def test_client_down():
 
 def test_server_down():
 	_test_config('server')
+
+def test_server_without_clients_down():
+	scripts.generate_docker_compose(0)
+	_test_config('server', 2)
 
 def test_both_down():
 	_test_config('all')
