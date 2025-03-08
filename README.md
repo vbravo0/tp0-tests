@@ -1,8 +1,16 @@
-# TP0 Tests Automatizados
+# TP0 Tests Automáticos
 
-## Setup
+Test automáticos que ayudan a la depuración del [ TP0](https://github.com/7574-sistemas-distribuidos/tp0-base).
 
-Instalar paquetes requeridos (recomendamos usar pyenv or virtualenv)
+### Advertencias
+
+- Antes de cada test se detienen y eliminan todos los contenedores, imágenes y redes del sistema.
+
+- Antes de cada test se resetea la rama actual y se cambia a la rama a verificar, lo que eliminará cambios no incluídos en un commit.
+
+## Instalación
+
+Instalar paquetes requeridos (se recomienda usar pyenv or virtualenv)
 
 ```
 pip install -r requirements.txt
@@ -10,21 +18,15 @@ pip install -r requirements.txt
 
 ## Ejecución
 
-Ejecutar `pytest`, pasando la ruta al repositorio como variable de entorno.
-La ruta no es una URL de github, sino la ruta absoluta al repositorio en tu sistema de archivos.
+El repositorio cuenta con un **Makefile** que incluye distintos comandos en forma de targets. Los targets se ejecutan mediante la invocación de:  `REPO_PATH=path/to/repo make \<target\>` Donde REPO_PATH es una variable de entorno , cuyo valor  es la ruta  a la carpeta de la implementación a validar, no el url remoto de git. 
 
-```
-REPO_PATH=/path/to/repo pytest
-```
+Los targets disponibles son:
 
-Tambien, podemos ver todos los logs al ejecutar los tests con la flag `-s`.
+* **deliver**: Ejecuta los tests sobre REPO_PATH y si todos ellos pasan muestra un texto de entrega de ejemplo.
 
-```
-REPO_PATH=/path/to/repo pytest -s
-```
+* **test**: : Ejecuta los tests  sobre REPO_PATH. Se puede editar el archivo `pytest.ini` para modificar el timeout y los ejercicios a probar.
 
-### ADVERTENCIAS:
+* **test-logs**: :  Idéntico al comando tests, pero invocando Pytest con el flag `-s`, que incluye más logs. Útil para depurar una prueba especialmente obtusa.
 
-- Antes de cada test se detienen y eliminan todos los contenedores, imágenes y redes. Asegúrate de no tener contenedores importantes corriendo en tu sistema.
 
-- Antes de cada test se resetea la rama actual y se cambia a la rama a verificar, lo que eliminará cambios sin commitear.
+
