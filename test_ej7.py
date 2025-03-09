@@ -80,7 +80,7 @@ def test_winners_with_3_clients():
       all_bets_sent = True
 
     elif msg['action'] == 'consulta_ganadores' and msg['result'] == line_parser.Result.SUCCESS:
-      assert all_bets_sent, 'All bets should have been received before the receiving results'
+      assert all_bets_sent, 'All bets should have been received before receiving the results'
       src = msg['source']
       winners[src] = int(msg['cant_ganadores'])
       
