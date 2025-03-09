@@ -1,6 +1,6 @@
 import os
 import pytest
-from utils import shell_cmd, git, docker, config, scripts, line_parser
+from utils import git, docker, scripts, line_parser
 from utils.mocks import mocks
 
 def _test_nc(result):

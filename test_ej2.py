@@ -1,6 +1,6 @@
 import os
 import pytest
-from utils import shell_cmd, git, docker, config, scripts, line_parser
+from utils import git, docker, config, scripts, line_parser
 
 CLIENT_CONFIG_A = {
 	'loop_amount' : 5,

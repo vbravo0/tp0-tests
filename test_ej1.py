@@ -1,6 +1,6 @@
 import os
 import pytest
-from utils import shell_cmd, git, docker, config, scripts, line_parser
+from utils import git, docker, config, scripts, line_parser
 
 def _test_clients_msg_amount(client_amount, msg_amount):
 	# Script setup
