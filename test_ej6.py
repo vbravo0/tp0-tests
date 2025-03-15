@@ -8,14 +8,14 @@ CLIENT_CONFIG = {
 }
 
 def generate_agency_file(filename, register_amount):
-  os.makedirs(os.path.dirname(f'{os.environ['REPO_PATH']}/.data'), exist_ok=True)
-  with open(f'{os.environ['REPO_PATH']}/.data/{filename}', "w+") as file:
+  os.makedirs(os.path.dirname(f'{os.environ["REPO_PATH"]}/.data'), exist_ok=True)
+  with open(f'{os.environ["REPO_PATH"]}/.data/{filename}', "w+") as file:
     for i in range(register_amount):
       file.write(f'A,B,{str(i).zfill(8)},2000-01-01,{i}\n')
 
 @pytest.fixture(autouse=True, scope='module')
 def setup():
-  os.chdir(os.environ['REPO_PATH'])
+  os.chdir(os.environ["REPO_PATH"])
   git.reset_branch()
   git.switch_branch('ej6')
   docker.stop_all()

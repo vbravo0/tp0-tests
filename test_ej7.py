@@ -13,8 +13,8 @@ def make_id(i):
   return str(i).zfill(8)
 
 def generate_agency_file(filename, register_amount, winners):
-  os.makedirs(os.path.dirname(f'{os.environ['REPO_PATH']}/.data'), exist_ok=True)
-  with open(f'{os.environ['REPO_PATH']}/.data/{filename}', "w+") as file:
+  os.makedirs(os.path.dirname(f'{os.environ["REPO_PATH"]}/.data'), exist_ok=True)
+  with open(f'{os.environ["REPO_PATH"]}/.data/{filename}', "w+") as file:
     for i in range(register_amount):
     
       if i in winners:
@@ -26,7 +26,7 @@ def generate_agency_file(filename, register_amount, winners):
 
 @pytest.fixture(autouse=True, scope='module')
 def setup():
-  os.chdir(os.environ['REPO_PATH'])
+  os.chdir(os.environ["REPO_PATH"])
   git.reset_branch()
   git.switch_branch('ej7')
   docker.stop_all()
