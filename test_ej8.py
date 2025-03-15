@@ -10,7 +10,7 @@ CLIENT_CONFIG = {
 
 @pytest.fixture(autouse=True, scope='module')
 def setup():
-  os.chdir(os.environ["REPO_PATH"])
+  os.chdir(os.environ['REPO_PATH'])
   git.reset_branch()
   git.switch_branch('ej8')
   docker.stop_all()

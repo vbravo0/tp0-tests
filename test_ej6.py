@@ -15,7 +15,7 @@ def generate_agency_file(filename, register_amount):
 
 @pytest.fixture(autouse=True, scope='module')
 def setup():
-  os.chdir(os.environ["REPO_PATH"])
+  os.chdir(os.environ['REPO_PATH'])
   git.reset_branch()
   git.switch_branch('ej6')
   docker.stop_all()
